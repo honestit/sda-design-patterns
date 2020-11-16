@@ -10,6 +10,7 @@ public class CountryBuilder {
     private Country country = new Country();
 
     public CountryBuilder() {
+
     }
 
     public CountryBuilder(Country c) {

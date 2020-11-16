@@ -1,10 +1,11 @@
 package gof.builder;
 
+import gof.builder.advanced.AdvancedCityBuilder;
+import gof.builder.advanced.AdvancedCountryBuilder;
 import gof.builder.simple.CityBuilder;
 import gof.builder.simple.CountryBuilder;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BuilderApp {
 
@@ -34,21 +35,47 @@ public class BuilderApp {
 //        CountryBuilder countryBuilder = new CountryBuilder();
 //        countryBuilder = countryBuilder.name("Polska");
 
-        City warsaw = new CityBuilder()
-                .name("Warszawa")
-                .population(1_600_000L)
+
+        {
+            City warsaw = new CityBuilder()
+                    .name("Warszawa")
+                    .population(1_600_000L)
+                    .build();
+
+            City wroclaw = new CityBuilder().name("Wrocław").population(650_000L).build();
+
+            Country poland = new CountryBuilder()
+                    .name("Polska").population(38_000_000L)
+                    .city(warsaw)
+                    .city(wroclaw)
+                    .capital(warsaw)
+                    .build();
+
+            System.out.println(poland);
+        }
+
+
+        City warsaw = new AdvancedCityBuilder(null).name("Warszawa").population(1_600_000L).build();
+
+        Country poland = new AdvancedCountryBuilder().name("Polska").population(38_000_000L).build();
+
+        Country france = new AdvancedCountryBuilder()
+                .name("Francja").population(65_000_000L)
+                .city().name("Paryż").population(5_000_000L).asCapital()
+                .city().name("Lyon").population(2_500_000L).asCity()
                 .build();
 
-        City wroclaw = new CityBuilder().name("Wrocław").population(650_000L).build();
+        int a = 2 + 2 + 2 * 4 - 7;
 
-        Country poland = new CountryBuilder()
-                .name("Polska").population(38_000_000L)
-                .city(warsaw)
-                .city(wroclaw)
-                .capital(warsaw)
-                .build();
+        System.out.println(france);
 
-        System.out.println(poland);
+        // AssertJ
+        // Assertions.assertThat(france)
+        //              .isNotNull()
+        //              .hasFieldOrProperty("name", "Francja")
+        //              .hasNonNullFieldsOrProperties();
+
+        // Spring Security
 
     }
 }

@@ -2,6 +2,7 @@ package gof.decorator;
 
 import java.math.BigDecimal;
 import java.util.Random;
+import java.util.UUID;
 
 public class InMemoryBankAccount implements BankAccount {
 
@@ -21,7 +22,8 @@ public class InMemoryBankAccount implements BankAccount {
         this.lastName = lastName;
         this.pesel = pesel;
         this.open = true;
-        this.IBAN = Long.toHexString(new Random().nextLong()).toUpperCase();
+//        this.IBAN = Long.toHexString(new Random().nextLong()).toUpperCase();
+        this.IBAN = UUID.randomUUID().toString();
     }
 
     @Override
@@ -64,5 +66,17 @@ public class InMemoryBankAccount implements BankAccount {
         if (!open) {
             throw new IllegalStateException("Konto nie zostało otwarte lub jest zamknięte");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "InMemoryBankAccount{" +
+                "IBAN='" + IBAN + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", amount=" + amount +
+                ", open=" + open +
+                '}';
     }
 }

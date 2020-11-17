@@ -1,5 +1,7 @@
 package gof.decorator;
 
+import gof.decorator.impl.LoggableBankAccount;
+
 import java.math.BigDecimal;
 
 public class DecoratorApp {
@@ -18,6 +20,16 @@ public class DecoratorApp {
 
         closeAccount(account1);
         closeAccount(account2);
+
+        BankAccount loggableAccount = new LoggableBankAccount(new InMemoryBankAccount());
+
+        loggableAccount.open("a", "b", "c");
+        loggableAccount.deposit(BigDecimal.valueOf(20_000_000L));
+
+        BankAccount doubleLoggedAccount = new LoggableBankAccount(new LoggableBankAccount(new InMemoryBankAccount()));
+        doubleLoggedAccount.open("0", "1", "2");
+
+        closeAccount(doubleLoggedAccount);
     }
 
     public static void closeAccount(BankAccount someBankAccount) {

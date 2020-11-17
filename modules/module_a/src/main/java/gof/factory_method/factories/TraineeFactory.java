@@ -7,6 +7,7 @@ public class TraineeFactory {
 
     public static Trainee withManager(String firstName, String lastName, Manager manager) {
         Trainee trainee = new Trainee(firstName, lastName);
+        trainee.setManager(manager);
         return trainee;
     }
 

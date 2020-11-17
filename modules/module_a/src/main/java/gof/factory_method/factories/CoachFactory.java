@@ -13,13 +13,13 @@ public class CoachFactory {
 
     public static Coach regular(String firstName, String lastName) {
         Coach coach = CoachFactory.coach(firstName, lastName);
-        coach.setYearOfExperience(2);
+        coach.setYearOfExperience(3);
         return coach;
     }
 
     public static Coach senior(String firstName, String lastName) {
         Coach coach = CoachFactory.coach(firstName, lastName);
-        coach.setYearOfExperience(5);
+        coach.setYearOfExperience(6);
         return coach;
     }
 }

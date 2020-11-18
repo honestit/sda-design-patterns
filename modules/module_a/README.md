@@ -283,7 +283,7 @@ Powodzenia!
 
 ### Zadanie samodzielne - Builder
 
-1. W pakiecie `builder` stwórz klasę `URLBuilder`. Klasa powinna umożliwiać stworzenie prawidłowego adresu URL ([sprawdź]()) - tak mniej więcej. 
+1. W pakiecie `builder` stwórz klasę `URLBuilder`. Klasa powinna umożliwiać stworzenie prawidłowego adresu URL ([sprawdź](https://pl.wikipedia.org/wiki/Uniform_Resource_Locator)) - tak mniej więcej. 
 
    Adres URL składa się ze schematu (np. `http` albo `https`), domeny (np. `www.wp.pl` albo `127.0.0.1`), opcjonalnego portu (np. `80` albo `8080`), następnie adresu zasobu (**ścieżki**) rozpoczynającego się od symbolu `/` (np. `/api/users/search`) oraz opcjonalnych parametrach rozpoczynających się od znaku `?` i występujących jako pary `klucz[=wartość]`, które od siebie rozdzielane są symbolem `&` (np. `?q=abc` albo `?firstName=aleks&lastName=told&active`).
    

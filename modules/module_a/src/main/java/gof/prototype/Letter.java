@@ -2,6 +2,8 @@ package gof.prototype;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Letter {
 
@@ -9,6 +11,7 @@ public class Letter {
     private String content;
     private LocalDate date;
     private String receiver;
+    private List<String> attachments = new ArrayList<>();
 
     public String getTitle() {
         return title;
@@ -50,5 +53,13 @@ public class Letter {
                 ", date=" + date +
                 ", receiver='" + receiver + '\'' +
                 '}';
+    }
+
+    public List<String> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<String> attachments) {
+        this.attachments = attachments;
     }
 }

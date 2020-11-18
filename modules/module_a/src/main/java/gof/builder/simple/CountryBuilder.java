@@ -3,7 +3,9 @@ package gof.builder.simple;
 import gof.builder.City;
 import gof.builder.Country;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class CountryBuilder {
 
@@ -14,7 +16,11 @@ public class CountryBuilder {
     }
 
     public CountryBuilder(Country c) {
-        country = c;
+        country = new Country();
+        country.setName(c.getName());
+        country.setPopulation(c.getPopulation());
+        country.setCities(new ArrayList<>(c.getCities()));
+        country.setCapital(c.getCapital());
     }
 
     public CountryBuilder name(String name) {

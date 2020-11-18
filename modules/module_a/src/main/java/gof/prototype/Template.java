@@ -1,5 +1,7 @@
 package gof.prototype;
 
+import java.util.List;
+
 public class Template extends Letter {
 
     public Letter letter() {
@@ -8,6 +10,7 @@ public class Template extends Letter {
         letter.setContent(this.getContent());
         letter.setDate(this.getDate());
         letter.setReceiver(this.getReceiver());
+        letter.setAttachments(List.copyOf(this.getAttachments()));
         return letter;
     }
 

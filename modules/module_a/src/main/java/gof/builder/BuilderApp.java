@@ -50,32 +50,44 @@ public class BuilderApp {
                     .city(wroclaw)
                     .capital(warsaw)
                     .build();
-
-            System.out.println(poland);
         }
 
+        System.out.println((String) null);
 
-        City warsaw = new AdvancedCityBuilder(null).name("Warszawa").population(1_600_000L).build();
+        {
+            City warsaw = new AdvancedCityBuilder(null).name("Warszawa").population(1_600_000L).build();
 
-        Country poland = new AdvancedCountryBuilder().name("Polska").population(38_000_000L).build();
+            Country poland = new AdvancedCountryBuilder().name("Polska").population(38_000_000L).build();
 
-        Country france = new AdvancedCountryBuilder()
-                .name("Francja").population(65_000_000L)
-                .city().name("Paryż").population(5_000_000L).asCapital()
-                .city().name("Lyon").population(2_500_000L).asCity()
+            Country france = new AdvancedCountryBuilder()
+                    .name("Francja").population(65_000_000L)
+                    .city().name("Paryż").population(5_000_000L).asCapital()
+                    .city().name("Lyon").population(2_500_000L).asCity()
+                    .build();
+        }
+
+        String url = new URLBuilder()
+                .schema("http")
+                .domain("localhost")
+                .port("8080")
+                .path("/api/users/search")
+                .param("firstName", "Jan")
+                .param("lastName", "WwW")
+                .param("ordered")
                 .build();
 
-        int a = 2 + 2 + 2 * 4 - 7;
+        System.out.println(url);
 
-        System.out.println(france);
+        url = new URLBuilder()
+                .schema("http")
+                .domain("localhost")
+                .path("/api/users/search")
+                .param("ordered")
+                .build();
 
-        // AssertJ
-        // Assertions.assertThat(france)
-        //              .isNotNull()
-        //              .hasFieldOrProperty("name", "Francja")
-        //              .hasNonNullFieldsOrProperties();
+        System.out.println(url);
 
-        // Spring Security
+
 
     }
 }

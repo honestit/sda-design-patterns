@@ -281,6 +281,54 @@ Powodzenia!
 
 ----
 
+### Zadanie samodzielne - Builder
+
+1. W pakiecie `builder` stwórz klasę `URLBuilder`. Klasa powinna umożliwiać stworzenie prawidłowego adresu URL ([sprawdź]()) - tak mniej więcej. 
+
+   Adres URL składa się ze schematu (np. `http` albo `https`), domeny (np. `www.wp.pl` albo `127.0.0.1`), opcjonalnego portu (np. `80` albo `8080`), następnie adresu zasobu (**ścieżki**) rozpoczynającego się od symbolu `/` (np. `/api/users/search`) oraz opcjonalnych parametrach rozpoczynających się od znaku `?` i występujących jako pary `klucz[=wartość]`, które od siebie rozdzielane są symbolem `&` (np. `?q=abc` albo `?firstName=aleks&lastName=told&active`).
+   
+   Przykładowy adres URL: `http://localhost:8080/api/users/search?q=firstName&value=Jan&ordered
+   
+   Zwróć uwagę, że domenę od schematu określa sekwencja `://`, ale użytkownik jej nie musi podawać.
+   
+1. Twoja klasa ma dostarczyć interfejs umożliwiający określenie:
+   - schematu
+   - domeny
+   - portu (opcjonalne)
+   - ścieżki
+   - parametrów (opcjonalne), przy czym parametry powinny być określane jako para wartości: np. `param(String key, String value)` - pamiętaj, że wartość może nie być określona
+   
+   > Zastanów się w jaki sposób najlepiej przechowywać każdą z tych wartości w klasie `URLBuilder`
+   
+1. Twoja klasa powinna również udostępniać metodę `String build()`, która przeprowadzi walidację poprawności ustawionych elementów adresu URL oraz zwróci kompletny adres jako wartość typu `String`.
+   
+1. Przetestuj działanie klasy `URLBuilder` w klasie `BuilderApp`.
+
+---
+
+### Zadanie samodzielne - Decorator
+   
+1. W pakiecie `decorator` stwórz interfejs `Calculator`, który posiada zestaw metod umożliwiających obliczenie:
+   - silni z liczby: `long factorial(int n)`
+   - kolejnej wartości z ciągu fibonacciego: `long fibbonacci(int n)`
+   
+1. Następnie stwórz klasę `SimpleCalculator`, która będzie implementacją tego interfejsu - dostarcz w niej prawidłowe algorytmy dla każdego obliczenia.
+   
+1. Zaimplementuj klasę `CachedCalculator`, która będzie realizowała wzorzec Dekoratora wobec interfejsu `Calculator`. Rolą klasy będzie zapamiętywanie wyniku obliczeń tak, aby nie było potrzebne ich przeprowadzenie. Jeżeli np. została już raz użyta metoda `factorial` z wartością `10`, to wynik powinien być zapamiętany w wewnętrznej pamięci klasy `CachedCalculator`.
+   
+   > Możesz dla ułatwienia zaimplementować osobne pamięci dla każdej z metod albo jedną pamięć zbiorczą dla wszystkich metod. Przemyśl też jakiej struktury użyjesz do zapamiętywania wartości wejściowych i ich wyników.
+   
+   > W implementacji zadbaj też o to, aby było wiadomo czy wartość jest obliczana czy też pochodzi z pamięci (np. jakieś info wyświetlane w konsoli)
+
+1. W klasie `CachedCalculator` dostarcz również metodę `void clearCache`, która wyczyści pamięć kalkulatora.
+   
+   > Jeżeli to zadanie będzie dla Ciebie zbyt łatwę, to możesz zadbać o to, aby pamięć kalkulatora przechowywała tylko 10 ostatnich obliczeń.
+
+1. Przetestuj działanie klasy `CachedCalculator` w klasie `DecoratorApp` wykonując zestaw obliczeń, a następnie wykonując go ponownie. Za drugim razem te same działania powinny być odczytywane z pamięci.
+1. Sprawdź czy wyczyszczenie pamięci spowoduje ponowne wykonywanie obliczeń.
+
+---
+
 ### Gratuluję!
 
 Zakończyłeś/aś pracę z kiloma ważnymi wzorcami projektowyi! Ich świat jest jeszcze większy, ale tyle wystarczy. Najważniejsze, że nie tylko widzisz jak ich implementacja może wyglądać, ale również spotkałeś/aś się z problemami, które rozwiązują. Pamiętaj, że czym więcej kodu, czym większa aplikacja i czym więcej w niej zależności między klasami, tym większą wartość wnoszą wzorce projektowe.

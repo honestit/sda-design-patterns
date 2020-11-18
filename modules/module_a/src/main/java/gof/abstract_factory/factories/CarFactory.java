@@ -64,7 +64,8 @@ public abstract class CarFactory {
     public static enum Made {
 
         FIAT("Fiat"),
-        SKODA("Skoda");
+        SKODA("Skoda"),
+        OPEL("Opel");
 
         private final String madeName;
 

@@ -4,6 +4,10 @@ import gof.abstract_factory.cars.Car;
 import gof.abstract_factory.cars.Combi;
 import gof.abstract_factory.cars.SUV;
 import gof.abstract_factory.cars.Sedan;
+import gof.abstract_factory.factories.CarFactory;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class AbstractFactoryApp {
 
@@ -28,5 +32,14 @@ public class AbstractFactoryApp {
         car3.setMade("Fiat");
         car3.setPrice("400000,00");
         car3.setName("Fiat Sedan");
+
+//        System.getProperties().list(System.out);
+//        String userHome = System.getProperty("user.home");
+
+        Sedan sedan = CarFactory.getDefaultFactory().sedan();
+        System.out.println(sedan);
+
+        Combi combi = CarFactory.getFactory(CarFactory.Made.FIAT).combi();
+        System.out.println(combi);
     }
 }

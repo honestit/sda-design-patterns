@@ -34,6 +34,9 @@ public class FiatFactory extends CarFactory {
         sedan.setVolume("1.4");
         sedan.setPrice("40.000");
         sedan.setName("Fiat Sedan");
+
+//        Sedan sedan2 = (Sedan) fiat2(new Sedan());
+
         return sedan;
     }
 
@@ -41,4 +44,9 @@ public class FiatFactory extends CarFactory {
         car.setMade("Fiat");
         return car;
     }
+
+//    private Car fiat2(Car car) {
+//        car.setMade("Fiat");
+//        return car;
+//    }
 }
